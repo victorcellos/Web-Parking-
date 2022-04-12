@@ -16,19 +16,19 @@ if(!empty($dados['submit'])){
     //validar os campos individual
     if(empty($dados['nome'])){
         $_SESSION['msg1'] = "<p style='color: red;'>Erro: Necessário preencher o campo nome!</p>";
-        header("location: ../cadastrar.php");
+        header("location: ../painelusuario.php");
     }elseif(empty($dados['telefone'])){
         $_SESSION['msg1'] = "<p style='color: red;'>Erro: Necessário preencher o campo telefone!</p>";
-        header("location: ../cadastrar.php");
+        header("location: ../painelusuario.php");
     }elseif(empty($dados['email'])){
         $_SESSION['msg1'] = "<p style='color: red;'>Erro: Necessário preencher o campo email!!</p>";
-        header("location: ../cadastrar.php");
+        header("location: ../painelusuario.php");
     }elseif(empty($dados['senha'])){
         $_SESSION['msg1'] = "<p style='color: red;'>Erro: Necessário preencher o campo senha!</p>";
-        header("location: ../cadastrar.php");
+        header("location: ../painelusuario.php");
     }elseif($dados['senha'] != $dados['confirmsenha']){
     $_SESSION['msg1'] = "<p style='color: red;'>Erro: Senhas não coincidem!</p>";
-    header("location: ../cadastrar.php");
+    header("location: ../painelusuario.php");
     }else{
         if($dados['email']){
             $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
@@ -49,15 +49,15 @@ if(!empty($dados['submit'])){
                  $_SESSION['msg1'] = "<p style='color: green;'>Usuario cadastrado com sucesso!</p>";
              
                  //Redirecionar o usuario a pagina
-                 header("location: ../cadastrar.php");
+                 header("location: ../painelusuario.php.php");
                 
             }else{
                 $_SESSION['msg1'] = "<p style='color: red;'>Erro: Email já cadastrado!</p>";
-                header("location: ../cadastrar.php");
+                header("location: ../painelusuario.php.php");
             }
     
         }else{
-            header("location: ../cadastrar.php");
+            header("location: ../painelusuario.php.php");
         }
     }
 
@@ -66,7 +66,7 @@ if(!empty($dados['submit'])){
     $_SESSION['msg'] = "<p style='color: red;'>Erro: Veiculo não cadastrado!</p>";
 
     //Redirecionar o usuario a pagina
-    header("location: ../cadastrar.php");
+    header("location: ../painelusuario.php.php");
 }
 
 ?>

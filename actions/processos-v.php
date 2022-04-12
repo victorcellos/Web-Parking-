@@ -15,20 +15,20 @@ if(!empty($dados['submit'])){
 
     //validar os campos individual
     if(empty($dados['marca'])){
-        $_SESSION['msg'] = "<p style='color: red;'>Erro: Necessário preencher o campo nome!</p>";
-        header("location: ../cadveiculos.php");
+        $_SESSION['msg'] = "<p style='color: red;'>Erro: Necessário preencher o campo marca!</p>";
+        header("location: ../painelveiculos.php");
     }elseif(empty($dados['modelo'])){
         $_SESSION['msg'] = "<p style='color: red;'>Erro: Necessário preencher o campo modelo!</p>";
-        header("location: ../cadveiculos.php");
+        header("location: ../painelveiculos.php");
     }elseif(empty($dados['placa'])){
         $_SESSION['msg'] = "<p style='color: red;'>Erro: Necessário preencher o campo placa!!</p>";
-        header("location: ../cadveiculos.php");
+        header("location: ../painelveiculos.php");
     }elseif(empty($dados['cor'])){
         $_SESSION['msg'] = "<p style='color: red;'>Erro: Necessário preencher o campo cor!</p>";
-        header("location: ../cadveiculos.php");
+        header("location: ../painelveiculos.php");
     }elseif(empty($dados['entrada'])){
         $_SESSION['msg'] = "<p style='color: red;'>Erro: Necessário preencher o campo entrada!</p>";
-        header("location: ../cadveiculos.php");
+        header("location: ../painelveiculos.php");
     }else{
         if($dados['placa']){
             $sql = $pdo->prepare("SELECT * FROM carros WHERE placa = :placa");
@@ -57,17 +57,17 @@ if(!empty($dados['submit'])){
              
                 //cria a variavel global para salvar a mensagem
                  $_SESSION['msg'] = "<p style='color: green;'>Veiculo cadastrado com sucesso!</p>";
-             
+                 header("location: ../painelveiculos.php");
                  //Redirecionar o usuario a pagina
-                 header("location: ../cadveiculos.php");
+                
                 
             }else{
                 $_SESSION['msg'] = "<p style='color: red;'>Erro: Placa já cadastrado!</p>";
-                header("location: ../cadveiculos.php");
+                header("location: ../painelveiculos.php");
             }
     
         }else{
-            header("location: ../cadveiculos.php");
+            header("location: ../painelveiculos.php");
         }
     }
 
@@ -77,7 +77,7 @@ if(!empty($dados['submit'])){
     $_SESSION['msg'] = "<p style='color: red;'>Erro: Veiculo não cadastrado!</p>";
 
     //Redirecionar o usuario a pagina
-    header("location: ../cadveiculos.php");
+    header("location: ../painelveiculos.php");
 }
 
 ?>

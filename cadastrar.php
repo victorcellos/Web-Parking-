@@ -1,3 +1,7 @@
+<?php
+session_start(); // iniciado a sessão
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,18 +16,24 @@
         <div class="card">
             <div class="card-top">
                 <img class="imglogin" src="../projeto3/imagens/usuario.jpg" alt="usuario">
+                <?php 
+                if(isset($_SESSION['msg1'])){
+                    echo $_SESSION['msg1'];
+                    unset($_SESSION['msg1']);
+                }
+                ?>
                 <h2 class="titulo">Crie sua conta!</h2>
                 <p>Seja bem-vindo!</p>
             </div>
 
             <div class="card-grupo">
                 <label><b>Nome Completo:</b></label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome:" maxlength="64" required>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome:" maxlength="64" >
             </div>
 
             <div class="card-grupo">
                 <label><b>Telefone:</b></label>
-                <input type="text" id="telefone" name="telefone" placeholder="Telefone:" maxlength="64" required>
+                <input type="text" id="telefone" name="telefone" placeholder="Telefone:" maxlength="64" >
             </div>
 
             <div class="card-grupo">
@@ -34,6 +44,11 @@
             <div class="card-grupo">
                 <label><b>Senha:</b></label>
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha:" maxlength="32" required>
+            </div>
+
+            <div class="card-grupo">
+                <label><b>Senha:</b></label>
+                <input type="password" id="confirmsenha" name="confirmsenha" placeholder="Digite sua senha:" maxlength="32" required>
             </div>
             
             <div>
